@@ -1,24 +1,11 @@
-/**
- * SplashScreen
- * 启动屏
- * from：http://www.devio.org
- * Author:CrazyCodeBoy
- * GitHub:https://github.com/crazycodeboy
- * Email:crazycodeboy@gmail.com
- */
-
 #import "RNSplashScreen.h"
-#import <React/RCTBridge.h>
+
+@implementation RNSplashScreen
+RCT_EXPORT_MODULE()
 
 static bool waiting = true;
 static bool addedJsLoadErrorObserver = false;
 static UIView* loadingView = nil;
-
-@implementation RNSplashScreen
-- (dispatch_queue_t)methodQueue{
-    return dispatch_get_main_queue();
-}
-RCT_EXPORT_MODULE(SplashScreen)
 
 + (void)show {
     if (!addedJsLoadErrorObserver) {
@@ -69,5 +56,14 @@ RCT_EXPORT_METHOD(hide) {
 RCT_EXPORT_METHOD(show) {
     [RNSplashScreen show];
 }
+
+// Don't compile this code when we build for the old architecture.
+#ifdef RCT_NEW_ARCH_ENABLED
+- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
+    (const facebook::react::ObjCTurboModule::InitParams &)params
+{
+    return std::make_shared<facebook::react::NativeSplashScreenSpecJSI>(params);
+}
+#endif
 
 @end
