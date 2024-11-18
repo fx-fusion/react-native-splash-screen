@@ -6,4 +6,4 @@ export interface Spec extends TurboModule {
   show(fullScreen?: boolean): void;
 }
 
-export default TurboModuleRegistry.getEnforcing<Spec>("SplashScreen");
+export default TurboModuleRegistry.getEnforcing<Spec>("RNSplashScreen");
