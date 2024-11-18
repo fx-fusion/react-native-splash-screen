@@ -42,7 +42,7 @@
       "android": "android/generated"
     },
     "android": {
-      "javaPackageName": "com.splashscreen"
+      "javaPackageName": "org.devio.rn.splashscreen"
     }
   }
 }
