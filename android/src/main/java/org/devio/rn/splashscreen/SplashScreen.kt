@@ -43,8 +43,8 @@ object SplashScreen {
     show(activity,false)
   }
 
-  fun hide(activity: Activity?) {
-    var activity = activity
+   fun hide(act: Activity?) {
+    var activity = act
     if (activity == null) {
       if (mActivity == null) {
         return
@@ -54,11 +54,11 @@ object SplashScreen {
 
     if (activity == null) return
 
-    val _activity: Activity = activity
+    val bActivity: Activity = activity
 
-    _activity.runOnUiThread {
+    bActivity.runOnUiThread {
       if (mSplashDialog != null && mSplashDialog!!.isShowing) {
-        if (!_activity.isFinishing && !_activity.isDestroyed) {
+        if (!bActivity.isFinishing && !bActivity.isDestroyed) {
           mSplashDialog!!.dismiss()
         }
         mSplashDialog = null
