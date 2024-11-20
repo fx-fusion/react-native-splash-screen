@@ -20,13 +20,15 @@ class SplashScreenPackage : TurboReactPackage() {
     return ReactModuleInfoProvider {
       val moduleInfos: MutableMap<String, ReactModuleInfo> = HashMap()
       val isTurboModule: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
+      val isCxxModule = false
+      val needsEagerInit = false
+      val canOverrideExistingModule = false
       moduleInfos[SplashScreenModule.NAME] = ReactModuleInfo(
         SplashScreenModule.NAME,
         SplashScreenModule.NAME,
-        false,  // canOverrideExistingModule
-        false,  // needsEagerInit
-        true,  // hasConstants
-        false,  // isCxxModule
+        canOverrideExistingModule,  // canOverrideExistingModule
+        needsEagerInit,  // needsEagerInit
+        isCxxModule,  // isCxxModule
         isTurboModule // isTurboModule
       )
       moduleInfos
