@@ -23,6 +23,12 @@
     "android",
     "ios"
   ],
+  "files": [
+    "src",
+    "android",
+    "ios",
+    "react-native-splash-screen.podspec"    
+  ],
   "author": "crazycodeboy",
   "license": "MIT",
   "bugs": {
