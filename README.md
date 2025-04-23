@@ -165,13 +165,23 @@ Update `AppDelegate.m` with the following additions:
 
 ```
 ### For React Native 0.77+
+
+swift add Bridging-Header:
+1. xcode
+2. select project target
+3. "Build Settings"
+4. search "Bridging Header"
+5. "Objective-C Bridging Header" add 
+```
+$(SRCROOT)/../node_modules/react-native-splash-screen/ios/RNSplashScreen-Bridging-Header.h
+```
+
 Update `AppDelegate.swift` with the following additions:
 ```swift
 import UIKit
 import React
 import React_RCTAppDelegate
 import ReactAppDependencyProvider
-import react_native_splash_screen <-----
 @main
 class AppDelegate: RCTAppDelegate {
   override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
@@ -181,7 +191,7 @@ class AppDelegate: RCTAppDelegate {
     // You can add your custom initial props in the dictionary below.
     // They will be passed down to the ViewController used by React Native.
     self.initialProps = [:]
-    react_native_splash_screen.RNSplashScreen.show() <-----
+    RNSplashScreen.show() // <----- add this line
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 
